@@ -1,3 +1,4 @@
+package Threads_autoroute;
 
 import java.util.Random;
 import java.util.concurrent.CountDownLatch;
@@ -49,7 +50,7 @@ public class Voiture extends Thread {
 
     private void entrer() {
         Random r = new Random();
-        parcours = km_min + r.nextInt(km_max - km_min);//gÃ©nÃ©rer alÃ©atoirement la longueur du parcours de cette voiture
+        parcours = km_min + r.nextInt(km_max - km_min);//générer aléatoirement la longueur du parcours de cette voiture
 
     }
 
@@ -66,8 +67,8 @@ public class Voiture extends Thread {
 
     private void sortir() {
         try {
-            obs.increment(); //signaler Ã  l'observateur qu'on attend une caisse
-            Caisse c = gare.take();//demander une caisse, dÃ¨s qu'une caisse est libre elle sera affecter Ã  cette voiture et elle sortira du pool de caisses libres
+            obs.increment(); //signaler à  l'observateur qu'on attend une caisse
+            Caisse c = gare.take();//demander une caisse, dÃ¨s qu'une caisse est libre elle sera affecter à  cette voiture et elle sortira du pool de caisses libres
             c.payer();//payer
             System.out.println("Voiture " + num + " : sortie");
             gare.put(c);//libÃ©rer la caisse en la remettant dans le pool de caisses libres

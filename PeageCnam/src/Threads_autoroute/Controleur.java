@@ -1,4 +1,4 @@
-
+package Threads_autoroute;
 import java.util.Timer;
 
 /*
@@ -26,6 +26,6 @@ public class Controleur extends Thread{
         while (voitures_restantes != 0){//on vérifie s'il reste encore des voiture dans l'autoroute
             System.out.print("");
         }
-        timer.cancel();//on arrête le timer
+        timer.cancel();//on arrete le timer
     }
 }
