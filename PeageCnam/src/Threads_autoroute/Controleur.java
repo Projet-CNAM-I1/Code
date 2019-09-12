@@ -22,9 +22,9 @@ public class Controleur extends Thread{
 
     @Override
     public void run() {
-        while (voitures_restantes != 0){//on vÃ©rifie s'il reste encore des voiture dans l'autoroute
+        while (voitures_restantes != 0){//on vérifie s'il reste encore des voiture dans l'autoroute
             System.out.print("");
         }
-        timer.cancel();//on arrete le timer
+        timer.cancel();//on arrête le timer
     }
 }
