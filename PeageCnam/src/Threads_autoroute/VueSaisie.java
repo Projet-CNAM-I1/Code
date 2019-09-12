@@ -12,9 +12,7 @@ import java.util.Scanner;
  */
 
 public class VueSaisie{
-
-    private JPanel container = new JPanel();
-    private JPanel top = new JPanel(); 
+	
     private JTextField jtf1 = new JFormattedTextField(NumberFormat.getIntegerInstance());
     private JTextField jtf2 = new JFormattedTextField(NumberFormat.getPercentInstance());
     private JTextField jtf3 = new JFormattedTextField(NumberFormat.getIntegerInstance());
@@ -29,20 +27,17 @@ public class VueSaisie{
     
     private JButton b = new JButton ("Valider");
     
+    private JPanel cas = new JPanel();
+    
 	public FormAutoroute lire() {
 		
 		JFrame fenetre = new JFrame ( "Formulaire" ) ;
 		Container contenu = fenetre.getContentPane();
-		contenu . setLayout (new BorderLayout ( ) ) ;
-		
-	    
-	    container.setBackground(Color.white);
-	    container.setLayout(new BorderLayout());       
+		contenu . setLayout (new FlowLayout()) ;
+		contenu.setSize(100, 50);
+		contenu.add(cas, BorderLayout.CENTER);
+		 
 	    Font police = new Font("Arial", Font.BOLD, 14);
-	    
-	    top.setBackground(Color.white);
-	    top.setLayout(new FlowLayout());       
-	    
 	    
 	    jtf1.setFont(police);
 	    jtf1.setPreferredSize(new Dimension(150, 30));
@@ -67,46 +62,42 @@ public class VueSaisie{
 		
 	    
         this.label1 = new JLabel("Nombre de voitures : ");
-        this.label1.setHorizontalAlignment(JLabel.CENTER);
-        contenu.add(label1, BorderLayout .CENTER);
+        this.label1.setHorizontalAlignment(JLabel.TRAILING);
+        cas.add(label1);
         String nb_v = this.jtf1.getText();
-        contenu.add(this.jtf1);
+        cas.add(this.jtf1);
         
         this.label2 =  new JLabel("Nombre de caisses : ");
-        this.label2.setHorizontalAlignment(JLabel.CENTER);
-        contenu.add(label2, BorderLayout .CENTER);
+        this.label2.setHorizontalAlignment(JLabel.TRAILING);
+        cas.add(label2);
         String nb_c = this.jtf2.getText();
-        contenu.add(this.jtf2);
+        cas.add(this.jtf2);
         
         this.label3 =  new JLabel("Kilométrage min : ");
-        this.label3.setHorizontalAlignment(JLabel.CENTER);
-        contenu.add(label3, BorderLayout .CENTER);
+        this.label3.setHorizontalAlignment(JLabel.TRAILING);
+        cas.add(label3);
         String min = this.jtf3.getText();
-        contenu.add(this.jtf3);
+        cas.add(this.jtf3);
         
         this.label4 =  new JLabel("Kilométrage max : ");
-        this.label4.setHorizontalAlignment(JLabel.CENTER);
-        contenu.add(label4, BorderLayout .CENTER);
+        this.label4.setHorizontalAlignment(JLabel.TRAILING);
+        cas.add(label4);
         String max = this.jtf4.getText();
         contenu.add(this.jtf4);
         
         this.label5 =  new JLabel("Vitesse moyenne des véhicules : ");
         this.label5.setHorizontalAlignment(JLabel.CENTER);
-        contenu.add(label5, BorderLayout .CENTER);
+        cas.add(label5);
         String vitesse = this.jtf5.getText();
-        contenu.add(this.jtf5);
+        cas.add(this.jtf5);
         
-        //Définir les boutons au SUD
-        JPanel boutons = new JPanel (new FlowLayout ( ) ) ;
-        contenu .add(boutons , BorderLayout .SOUTH);
-        boutons.add(b);
-	
-        //this.setContentPane(top);
+
+        contenu.add(cas);
         fenetre.getContentPane().add(b);
+        fenetre.setContentPane(contenu);
         fenetre.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         fenetre.pack(); //dimmensionner la fenêtre
         fenetre.setVisible(true);  
-        
 		b.addActionListener(bt -> {
 		        	
 		});
