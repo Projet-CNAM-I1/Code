@@ -6,7 +6,7 @@ import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.Lock;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-
+//
 /*
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
@@ -17,7 +17,7 @@ public class Voiture extends Thread {
     private Gare gare;
     private Observateur obs;
     private int parcours;
-    private int vitesse;
+    private int vitesse; 
     private int km_min;
     private int km_max;
     private CountDownLatch barriere;
