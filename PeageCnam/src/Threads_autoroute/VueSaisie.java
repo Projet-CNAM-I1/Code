@@ -20,6 +20,7 @@ public class VueSaisie {
         System.out.print("Vitesse moyenne des véhicules : ");
         int vitesse = sc.nextInt();
         FormAutoroute f = new FormAutoroute(nb_v, nb_c, min, max, vitesse);
+        sc.close();
         return f; 
     }
 }
