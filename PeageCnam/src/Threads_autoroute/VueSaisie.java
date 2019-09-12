@@ -1,6 +1,5 @@
 package Threads_autoroute;
-import fr.ipst.io.Clavier;
-
+import java.util.Scanner;
 /*
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
@@ -9,16 +8,17 @@ import fr.ipst.io.Clavier;
 public class VueSaisie {
 
     public FormAutoroute lire() {
-        System.out.print("Nombre de voitures : ");
-        int nb_v = Clavier.lireInt();
+        Scanner sc = new Scanner(System.in);
+    	System.out.print("Nombre de voitures : ");
+        int nb_v = sc.nextInt();
         System.out.print("Nombre de caisses : ");
-        int nb_c = Clavier.lireInt();
-        System.out.print("KilomÃ©trage min : ");
-        int min = Clavier.lireInt();
-        System.out.print("KilomÃ©trage max : ");
-        int max = Clavier.lireInt();
-        System.out.print("Vitesse moyenne des vÃ©hicules : ");
-        int vitesse = Clavier.lireInt();
+        int nb_c = sc.nextInt();
+        System.out.print("Kilométrage min : ");
+        int min = sc.nextInt();
+        System.out.print("Kilométrage max : ");
+        int max = sc.nextInt();
+        System.out.print("Vitesse moyenne des véhicules : ");
+        int vitesse = sc.nextInt();
         FormAutoroute f = new FormAutoroute(nb_v, nb_c, min, max, vitesse);
         return f;
     }
