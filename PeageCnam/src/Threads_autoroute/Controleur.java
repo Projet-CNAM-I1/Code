@@ -22,7 +22,6 @@ public class Controleur extends Thread{
 
     @Override
     public void run() {
-        int i = 0;
         while (voitures_restantes != 0){//on vérifie s'il reste encore des voiture dans l'autoroute
             System.out.print("");
         }
