@@ -22,6 +22,7 @@ public class Autoroute {
 		return route;
 	}
 
+	
 	public static void main(String[] args) {
 		Autoroute auto = Autoroute.getInstance();
 		auto.simuler();
