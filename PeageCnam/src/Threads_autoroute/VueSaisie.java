@@ -18,8 +18,8 @@ public class VueSaisie extends JFrame{
     private JTextField jtfKmMax = new JFormattedTextField(NumberFormat.getIntegerInstance());
     private JTextField jtfVitesse = new JFormattedTextField(NumberFormat.getIntegerInstance());
     
-    private JTextArea ta = new JTextArea(5,30);
-    private JTextArea ta2 = new JTextArea(1,10);
+    private JTextArea ta = new JTextArea(20,30);
+    private JTextArea ta2 = new JTextArea(20,30);
 
     
     private JLabel labelNbVoiture;
@@ -35,6 +35,8 @@ public class VueSaisie extends JFrame{
     private JButton b = new JButton ("Valider");
         
     private JPanel cas = new JPanel(new FlowLayout());
+    
+    private JPanel cas2 = new JPanel(new BorderLayout());
     
 	public void lire() 
 	{		
@@ -93,16 +95,17 @@ public class VueSaisie extends JFrame{
         cas.add(this.jtfVitesse);
         
         
-	    this.add(ta);
-	    this.add(ta2);
-        cas.add(ta);
-        cas.add(ta2);
+	    //this.add(ta);
+	    //this.add(ta2);
+        cas2.add(ta, BorderLayout.CENTER);
+        cas2.add(ta2, BorderLayout.EAST);
         
         
         VueListener vl = new VueListener(this, jtfNbVoiture, jtfNbCaisses, jtfKmMin, jtfKmMax, jtfVitesse, ta, ta2);
         b.addActionListener(vl);
         cas.add(b);  
         this.add(cas);   
+        this.add(cas2, BorderLayout.SOUTH);
         //fenetre.setContentPane(cas);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.pack(); //dimensionner la fenêtre
