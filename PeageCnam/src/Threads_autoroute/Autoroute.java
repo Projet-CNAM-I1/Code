@@ -29,8 +29,9 @@ public class Autoroute {
 
 	public void simuler() {
 		VueSaisie vue1 = new VueSaisie();
-		FormAutoroute f = vue1.lire();
-		Observateur obs = new Observateur();
+		vue1.lire();
+		//FormAutoroute f = vue1.getFormAutoroute();
+		/*Observateur obs = new Observateur();
 		Gare gare = new Gare(f.getNb_caisses());
 
 		// Lancer le timer
@@ -48,7 +49,6 @@ public class Autoroute {
 			v.start();
 		}
 
-		System.out.print("Fin Main");
-
+		System.out.print("Fin Main");*/
 	}
 }

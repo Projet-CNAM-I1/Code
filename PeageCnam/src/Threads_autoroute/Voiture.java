@@ -1,11 +1,17 @@
 package Threads_autoroute;
 
+import java.awt.TextArea;
+import java.io.ByteArrayInputStream;
+import java.io.InputStream;
+import java.nio.charset.StandardCharsets;
 import java.util.Random;
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.locks.Condition;
 import java.util.concurrent.locks.Lock;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
+import javax.swing.JTextArea;
 //
 /*
  * To change this template, choose Tools | Templates
@@ -22,8 +28,9 @@ public class Voiture extends Thread {
     private int km_max;
     private CountDownLatch barriere;
     private Controleur controleur;
+    private JTextArea ta;
 
-    public Voiture(int num, int v, Gare gare, Observateur obs, int min, int max, CountDownLatch b, Controleur ctrl) {
+    public Voiture(int num, int v, Gare gare, Observateur obs, int min, int max, CountDownLatch b, Controleur ctrl, JTextArea ta) {
         super();
         this.num = num;
         this.gare = gare;
@@ -33,6 +40,7 @@ public class Voiture extends Thread {
         km_max = max;
         barriere = b;
         controleur = ctrl;
+        this.ta = ta;
     }
 
     @Override
@@ -64,16 +72,31 @@ public class Voiture extends Thread {
             }
         }
     }
-
+    
     private void sortir() {
-        try {
+    	//InputStream result;
+    	//result = System.in;
+        try 
+        {
             obs.increment(); //signaler ‡† l'observateur qu'on attend une caisse
             Caisse c = gare.take();//demander une caisse, d√®s qu'une caisse est libre elle sera affecter ‡† cette voiture et elle sortira du pool de caisses libres
             c.payer();//payer
+            int tps = c.getTemps();
             System.out.println("Voiture " + num + " : sortie");
+            ta.append("Voiture " + num + " : sortie ; temps :" +tps +"\n");
+           
+            //String name = ("Voiture " + num + " : sortie");
+            
             gare.put(c);//lib√©rer la caisse en la remettant dans le pool de caisses libres
             obs.decrement();//signaler √† l'observateur qu'on est sorti de la file d'attente d'une caisse
-        } catch (InterruptedException ex) {
+            
+            //result = new ByteArrayInputStream(name.getBytes(StandardCharsets.UTF_8));   
+        } 
+        catch (InterruptedException ex) 
+        {
+        	
         }
+        //return result;
     }
+    
 }

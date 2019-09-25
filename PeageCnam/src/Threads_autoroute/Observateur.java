@@ -14,11 +14,12 @@ public class Observateur extends TimerTask {
     }
     
     public synchronized void decrement(){
-        compteur --;
+        compteur --;        
     }
     
     @Override
-    public void run() {
+    public void run() 
+    {
         System.out.println(compteur);
     }
     

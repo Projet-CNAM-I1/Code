@@ -5,7 +5,8 @@ package Threads_autoroute;
  */
 
 
-public class FormAutoroute {
+public class FormAutoroute 
+{
 
     private int nb_voitures;
     private int nb_caisses;

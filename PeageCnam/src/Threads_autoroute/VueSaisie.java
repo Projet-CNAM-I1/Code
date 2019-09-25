@@ -1,107 +1,160 @@
 package Threads_autoroute;
 import javax.swing.*;
-import java.awt.*;
+import java.awt.*; 
 //import fr.ipst.io.Clavier;
-
+//import java.awt.event.ActionEvent;
+//import java.awt.event.ActionListener;
 import java.text.NumberFormat;
-import java.util.Scanner;
-
 /*
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
 
-public class VueSaisie{
+public class VueSaisie extends JFrame{
 	
-    private JTextField jtf1 = new JFormattedTextField(NumberFormat.getIntegerInstance());
-    private JTextField jtf2 = new JFormattedTextField(NumberFormat.getPercentInstance());
-    private JTextField jtf3 = new JFormattedTextField(NumberFormat.getIntegerInstance());
-    private JTextField jtf4 = new JFormattedTextField(NumberFormat.getPercentInstance());
-    private JTextField jtf5 = new JFormattedTextField(NumberFormat.getIntegerInstance());
+    private JTextField jtfNbVoiture = new JFormattedTextField(NumberFormat.getIntegerInstance());
+    private JTextField jtfNbCaisses = new JFormattedTextField(NumberFormat.getIntegerInstance());
+    private JTextField jtfKmMin = new JFormattedTextField(NumberFormat.getIntegerInstance());
+    private JTextField jtfKmMax = new JFormattedTextField(NumberFormat.getIntegerInstance());
+    private JTextField jtfVitesse = new JFormattedTextField(NumberFormat.getIntegerInstance());
+    
+    private JTextArea ta = new JTextArea(5,30);
+    private JTextArea ta2 = new JTextArea(1,10);
 
-    private JLabel label1;
-    private JLabel label2;
-    private JLabel label3;
-    private JLabel label4;
-    private JLabel label5;
+    
+    private JLabel labelNbVoiture;
+    private JLabel labelNbCaisses;
+    private JLabel labelKmMin;
+    private JLabel labelKmMax;
+    private JLabel labelVitesse;
+    
+    //private String nb_v, nb_c, min, max, vitesse;
+    
+    FormAutoroute f;
     
     private JButton b = new JButton ("Valider");
+        
+    private JPanel cas = new JPanel(new FlowLayout());
     
-    private JPanel cas = new JPanel();
-    
-	public FormAutoroute lire() {
-		
-		JFrame fenetre = new JFrame ( "Formulaire" ) ;
-		Container contenu = fenetre.getContentPane();
-		contenu . setLayout (new FlowLayout()) ;
-		contenu.setSize(100, 50);
-		contenu.add(cas, BorderLayout.CENTER);
-		 
+	public void lire() 
+	{		
+		//JFrame fenetre = new JFrame ( "Formulaire" ) ;					 
 	    Font police = new Font("Arial", Font.BOLD, 14);
 	    
-	    jtf1.setFont(police);
-	    jtf1.setPreferredSize(new Dimension(150, 30));
-	    //jtf1.setHorizontalAlignment(JLabel.CENTER);
-	    jtf1.setForeground(Color.BLUE);
+	    jtfNbVoiture.setFont(police);
+	    jtfNbVoiture.setPreferredSize(new Dimension(150, 30));
+	    jtfNbVoiture.setForeground(Color.BLUE);
 	    
-	    jtf2.setFont(police);
-	    jtf2.setPreferredSize(new Dimension(150, 30));
-	    jtf2.setForeground(Color.BLUE);
+	    jtfNbCaisses.setFont(police);
+	    jtfNbCaisses.setPreferredSize(new Dimension(150, 30));
+	    jtfNbCaisses.setForeground(Color.BLUE);
 	     
-	    jtf3.setFont(police);
-	    jtf3.setPreferredSize(new Dimension(150, 30));
-	    jtf3.setForeground(Color.BLUE);
+	    jtfKmMin.setFont(police);
+	    jtfKmMin.setPreferredSize(new Dimension(150, 30));
+	    jtfKmMin.setForeground(Color.BLUE);
 	    
-	    jtf4.setFont(police);
-	    jtf4.setPreferredSize(new Dimension(150, 30));
-	    jtf4.setForeground(Color.BLUE);
+	    jtfKmMax.setFont(police);
+	    jtfKmMax.setPreferredSize(new Dimension(150, 30));
+	    jtfKmMax.setForeground(Color.BLUE);
 	    
-	    jtf5.setFont(police);
-	    jtf5.setPreferredSize(new Dimension(150, 30));
-	    jtf5.setForeground(Color.BLUE);
+	    jtfVitesse.setFont(police);
+	    jtfVitesse.setPreferredSize(new Dimension(150, 30));
+	    jtfVitesse.setForeground(Color.BLUE);
 		
 	    
-        this.label1 = new JLabel("Nombre de voitures : ");
-        this.label1.setHorizontalAlignment(JLabel.TRAILING);
-        cas.add(label1);
-        String nb_v = this.jtf1.getText();
-        cas.add(this.jtf1);
+        this.labelNbVoiture = new JLabel("Nombre de voitures : ");
+        this.labelNbVoiture.setHorizontalAlignment(JLabel.TRAILING);
+        cas.add(labelNbVoiture);
+        //nb_v = this.jtfNbVoiture.getText();
+        cas.add(this.jtfNbVoiture);
         
-        this.label2 =  new JLabel("Nombre de caisses : ");
-        this.label2.setHorizontalAlignment(JLabel.TRAILING);
-        cas.add(label2);
-        String nb_c = this.jtf2.getText();
-        cas.add(this.jtf2);
+        this.labelNbCaisses =  new JLabel("Nombre de caisses : ");
+        this.labelNbCaisses.setHorizontalAlignment(JLabel.TRAILING);
+        cas.add(labelNbCaisses);
+        //nb_c = this.jtfNbCaisses.getText();
+        cas.add(this.jtfNbCaisses);
         
-        this.label3 =  new JLabel("Kilométrage min : ");
-        this.label3.setHorizontalAlignment(JLabel.TRAILING);
-        cas.add(label3);
-        String min = this.jtf3.getText();
-        cas.add(this.jtf3);
+        this.labelKmMin =  new JLabel("Kilométrage min : ");
+        this.labelKmMin.setHorizontalAlignment(JLabel.TRAILING);
+        cas.add(labelKmMin);
+        //min = this.jtfKmMin.getText();
+        cas.add(this.jtfKmMin);
         
-        this.label4 =  new JLabel("Kilométrage max : ");
-        this.label4.setHorizontalAlignment(JLabel.TRAILING);
-        cas.add(label4);
-        String max = this.jtf4.getText();
-        contenu.add(this.jtf4);
+        this.labelKmMax =  new JLabel("Kilométrage max : ");
+        this.labelKmMax.setHorizontalAlignment(JLabel.TRAILING);
+        //max = this.jtfKmMax.getText();
+        cas.add(labelKmMax);        
+        cas.add(this.jtfKmMax);
         
-        this.label5 =  new JLabel("Vitesse moyenne des véhicules : ");
-        this.label5.setHorizontalAlignment(JLabel.CENTER);
-        cas.add(label5);
-        String vitesse = this.jtf5.getText();
-        cas.add(this.jtf5);
+        this.labelVitesse =  new JLabel("Vitesse moyenne des véhicules : ");
+        this.labelVitesse.setHorizontalAlignment(JLabel.CENTER);
+        cas.add(labelVitesse);
+        //vitesse = this.jtfVitesse.getText();
+        cas.add(this.jtfVitesse);
         
-
-        contenu.add(cas);
-        fenetre.getContentPane().add(b);
-        fenetre.setContentPane(contenu);
-        fenetre.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        fenetre.pack(); //dimmensionner la fenêtre
-        fenetre.setVisible(true);  
-		b.addActionListener(bt -> {
-		        	
-		});
-		FormAutoroute f = new FormAutoroute(Integer.parseInt(nb_v), Integer.parseInt(nb_c), Integer.parseInt(min), Integer.parseInt(max), Integer.parseInt(vitesse));
-        return f;
+        
+	    this.add(ta);
+	    this.add(ta2);
+        cas.add(ta);
+        cas.add(ta2);
+        
+        
+        VueListener vl = new VueListener(this, jtfNbVoiture, jtfNbCaisses, jtfKmMin, jtfKmMax, jtfVitesse, ta, ta2);
+        b.addActionListener(vl);
+        cas.add(b);  
+        this.add(cas);   
+        //fenetre.setContentPane(cas);
+        this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        this.pack(); //dimensionner la fenêtre
+        this.setVisible(true);      
+        
     }
+	
+
+	
+	public FormAutoroute getFormAutoroute()
+	{
+		return f;
+	}
+	
+	/*public int getNbC()
+	{
+		return Integer.parseInt(nb_c);
+	}
+	
+	public int getNbV()
+	{
+		return Integer.parseInt(nb_v);
+	}
+	
+	public int getMin()
+	{
+		return Integer.parseInt(min);
+	}
+	
+	public int getMax()
+	{
+		return Integer.parseInt(max);
+	}
+	
+	public int getVitesse()
+	{
+		return Integer.parseInt(vitesse);
+	}
+	
+	
+	
+	public class VueListener implements ActionListener
+	{
+		VueSaisie vs;
+		VueListener(VueSaisie vs)
+		{
+			this.vs = vs;
+		}
+		public void actionPerformed(ActionEvent e)
+		{  
+			f = new FormAutoroute(Integer.parseInt(nb_v), Integer.parseInt(nb_c), Integer.parseInt(min), Integer.parseInt(max),Integer.parseInt(nb_c));		
+		}
+	}
+	*/
 }
