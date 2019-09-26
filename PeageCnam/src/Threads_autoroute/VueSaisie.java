@@ -1,5 +1,7 @@
 package Threads_autoroute;
 import javax.swing.*;
+import javax.swing.text.DefaultCaret;
+
 import java.awt.*; 
 //import fr.ipst.io.Clavier;
 //import java.awt.event.ActionEvent;
@@ -19,7 +21,10 @@ public class VueSaisie extends JFrame{
     private JTextField jtfVitesse = new JFormattedTextField(NumberFormat.getIntegerInstance());
     
     private JTextArea ta = new JTextArea(20,30);
-    private JTextArea ta2 = new JTextArea(20,30);
+    private JTextArea ta2 = new JTextArea(20,35);
+    
+    private JScrollPane scroll;
+    private JScrollPane scroll2;
 
     
     private JLabel labelNbVoiture;
@@ -101,10 +106,19 @@ public class VueSaisie extends JFrame{
         cas2.add(ta2, BorderLayout.EAST);
         
         
+        scroll = new JScrollPane(ta);
+        scroll2 = new JScrollPane(ta2);
+        
+        cas2.add(scroll, BorderLayout.CENTER);
+        cas2.add(scroll2, BorderLayout.EAST);
+        
+        DefaultCaret caret = (DefaultCaret)ta.getCaret();
+        caret.setUpdatePolicy(DefaultCaret.ALWAYS_UPDATE);
+        
         VueListener vl = new VueListener(this, jtfNbVoiture, jtfNbCaisses, jtfKmMin, jtfKmMax, jtfVitesse, ta, ta2);
         b.addActionListener(vl);
         cas.add(b);  
-        this.add(cas);   
+        this.add(cas, BorderLayout.NORTH);   
         this.add(cas2, BorderLayout.SOUTH);
         //fenetre.setContentPane(cas);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
