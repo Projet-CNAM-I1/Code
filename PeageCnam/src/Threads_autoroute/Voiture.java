@@ -83,7 +83,7 @@ public class Voiture extends Thread {
             c.payer();//payer
             int tps = c.getTemps();
             System.out.println("Voiture " + num + " : sortie");
-            ta.append("Voiture " + num + " : sortie ; temps :" +tps +"\n");
+            ta.append("Voiture " + num + " : sortie ; temps :" +(float)tps/1000 +"s\n");
            
             //String name = ("Voiture " + num + " : sortie");
             

@@ -41,7 +41,7 @@ public class Controleur extends Thread{
         for (Caisse c : gare)
         {
         	i++;
-        	s="La caisse "+ i + ": temps moyen: " +c.getTempsMoyen() + "; nombre de voitures: " +c.getNbVoitures();
+        	s="La caisse "+ i + ": temps moyen: " + (float)c.getTempsMoyen()/1000 + "s; nombre de voitures: " +c.getNbVoitures();
         	tabNbRestant.append(s + "\n");
         }
     }
