@@ -21,7 +21,7 @@ public class Caisse {
     public void payer()
     {
         Random r = new Random();
-        temps = 1000 + r.nextInt(10000);
+        temps = 1000 + r.nextInt(100);
         nbVoitureDesservies++;
         tempsTotal += temps;
         

@@ -20,7 +20,7 @@ public class Observateur extends TimerTask {
     @Override
     public void run() 
     {
-        System.out.println(compteur);
+         System.out.println(compteur);
     }
     
 }

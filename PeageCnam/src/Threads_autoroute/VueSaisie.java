@@ -49,23 +49,23 @@ public class VueSaisie extends JFrame{
 	    Font police = new Font("Arial", Font.BOLD, 14);
 	    
 	    jtfNbVoiture.setFont(police);
-	    jtfNbVoiture.setPreferredSize(new Dimension(150, 30));
+	    jtfNbVoiture.setPreferredSize(new Dimension(40, 30));
 	    jtfNbVoiture.setForeground(Color.BLUE);
 	    
 	    jtfNbCaisses.setFont(police);
-	    jtfNbCaisses.setPreferredSize(new Dimension(150, 30));
+	    jtfNbCaisses.setPreferredSize(new Dimension(40, 30));
 	    jtfNbCaisses.setForeground(Color.BLUE);
 	     
 	    jtfKmMin.setFont(police);
-	    jtfKmMin.setPreferredSize(new Dimension(150, 30));
+	    jtfKmMin.setPreferredSize(new Dimension(40, 30));
 	    jtfKmMin.setForeground(Color.BLUE);
 	    
 	    jtfKmMax.setFont(police);
-	    jtfKmMax.setPreferredSize(new Dimension(150, 30));
+	    jtfKmMax.setPreferredSize(new Dimension(40, 30));
 	    jtfKmMax.setForeground(Color.BLUE);
 	    
 	    jtfVitesse.setFont(police);
-	    jtfVitesse.setPreferredSize(new Dimension(150, 30));
+	    jtfVitesse.setPreferredSize(new Dimension(40, 30));
 	    jtfVitesse.setForeground(Color.BLUE);
 		
 	    
@@ -82,35 +82,31 @@ public class VueSaisie extends JFrame{
         cas.add(this.jtfNbCaisses);
         
         this.labelKmMin =  new JLabel("Kilométrage min : ");
-        this.labelKmMin.setHorizontalAlignment(JLabel.TRAILING);
+       // this.labelKmMin.setHorizontalAlignment(JLabel.TRAILING);
         cas.add(labelKmMin);
         //min = this.jtfKmMin.getText();
         cas.add(this.jtfKmMin);
         
         this.labelKmMax =  new JLabel("Kilométrage max : ");
-        this.labelKmMax.setHorizontalAlignment(JLabel.TRAILING);
+       // this.labelKmMax.setHorizontalAlignment(JLabel.TRAILING);
         //max = this.jtfKmMax.getText();
         cas.add(labelKmMax);        
         cas.add(this.jtfKmMax);
         
         this.labelVitesse =  new JLabel("Vitesse moyenne des véhicules : ");
-        this.labelVitesse.setHorizontalAlignment(JLabel.CENTER);
+       // this.labelVitesse.setHorizontalAlignment(JLabel.CENTER);
         cas.add(labelVitesse);
         //vitesse = this.jtfVitesse.getText();
         cas.add(this.jtfVitesse);
         
-        
-	    //this.add(ta);
-	    //this.add(ta2);
-        cas2.add(ta, BorderLayout.CENTER);
-        cas2.add(ta2, BorderLayout.EAST);
-        
-        
+
         scroll = new JScrollPane(ta);
         scroll2 = new JScrollPane(ta2);
-        
+	    //this.add(ta);
+	    //this.add(ta2);
         cas2.add(scroll, BorderLayout.CENTER);
         cas2.add(scroll2, BorderLayout.EAST);
+        
         
         DefaultCaret caret = (DefaultCaret)ta.getCaret();
         caret.setUpdatePolicy(DefaultCaret.ALWAYS_UPDATE);
@@ -119,7 +115,7 @@ public class VueSaisie extends JFrame{
         b.addActionListener(vl);
         cas.add(b);  
         this.add(cas, BorderLayout.NORTH);   
-        this.add(cas2, BorderLayout.SOUTH);
+        this.add(cas2, BorderLayout.CENTER);
         //fenetre.setContentPane(cas);
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         this.pack(); //dimensionner la fenêtre
